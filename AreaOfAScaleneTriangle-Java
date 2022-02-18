@@ -1,0 +1,44 @@
+/**
+ * The purpose of this program is that it calculates the area of a scalene triangle using either Heron's formula or using trigonometry.
+ * The program will gather input from the user of dimensions of a scalene triangle and determine its area.
+ */
+package areaoftriangle;
+
+    /**
+     * Name: Harmandeep Arneja
+     * Date: 11/3/2022
+     * Course Code: ICS 4U1
+     * Program Title: Area Of A Scalene Triangle
+     */
+
+// Imports a package that will provide an interface that enables the development of input methods that can be used with Java RE.
+import javax.swing.*;
+
+// Imports a package that allows for the program to use the sin() math class method
+import static java.lang.Math.sin;
+
+public class AreaOfTriangle {
+
+    public static void main(String[] args) {
+        
+        // Prompting the user for side a, b, and angle c respectively in a dialog box
+        String UserAStr = JOptionPane.showInputDialog("Please Enter the Length for side a:");
+        String UserBStr = JOptionPane.showInputDialog("Please Enter the Length for side b:");
+        String UserAngleCStr = JOptionPane.showInputDialog("Please Enter the Value for Angle C:");
+        
+        // Declaring all the variables that will be needed in the calculations. Also converting the string values to double values and storing them.
+        double SideA = Double.parseDouble(UserAStr);
+        double SideB = Double.parseDouble(UserBStr);
+        double AngleCdeg = Double.parseDouble(UserAngleCStr);
+        
+        // Converting the angle measurement to radians
+        double AngleCRAD = Math.toRadians(AngleCdeg);
+        
+        // Using the trigonometry formula to detemine the area of a scalene triangle
+        double Area = ((SideA + SideB + sin(AngleCRAD)) / 2);
+        Area = Math.round(Area * 100.00) / 100.00;  // Rounding the Value to 2 Decimal Places
+        
+        // Outputting the final result of the area
+        System.out.println("The Area of the Scalene Triangle is = " + Area);
+    }
+}
